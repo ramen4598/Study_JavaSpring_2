@@ -4,3 +4,4 @@
 bin/
 /download
 /project/Servers
+target/
