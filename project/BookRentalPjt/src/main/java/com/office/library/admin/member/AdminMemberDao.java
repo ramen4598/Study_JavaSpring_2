@@ -78,4 +78,3 @@ public class AdminMemberDao {
 		return result;
 	}
 }
-bg

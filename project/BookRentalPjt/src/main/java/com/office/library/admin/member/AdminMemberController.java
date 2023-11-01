@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/admin/member")
-public class AdminMemberCotroller {
+public class AdminMemberController {
 	
 	@Autowired
 	AdminMemberService adminMemberService;
@@ -32,8 +32,6 @@ public class AdminMemberCotroller {
 			nextPage = "admin/member/create_account_ng";
 		
 		return nextPage;
-		
-		return null;
 	}
 
 }
