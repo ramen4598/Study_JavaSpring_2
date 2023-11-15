@@ -1,5 +1,7 @@
 package com.office.library.admin.member;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,7 +48,7 @@ public class AdminMemberController {
 	}
 	
 	@PostMapping("/loginConfirm")
-	public String loginConfirm(AdminMemberVo adminMemberVo) {
+	public String loginConfirm(AdminMemberVo adminMemberVo, HttpSession session) {
 		System.out.println("[AdminMemberController] loginConfirm()");
 		
 		String nextPage = "admin/member/login_ok";
@@ -55,7 +57,20 @@ public class AdminMemberController {
 		
 		if(loginedAdminMemberVo == null) {
 			nextPage = "admin/member/login_ng";
+		}else {
+			session.setAttribute("loginedAdminMemberVo", loginedAdminMemberVo);
+			session.setMaxInactiveInterval(60 * 30);
 		}
+		
+		return nextPage;
+	}
+	@GetMapping("/logoutConfirm")
+	public String logoutConfirm(HttpSession session) {
+		System.out.println("[AdminMemberController] logoutConfirm()");
+		
+		String nextPage = "redirect:/admin";
+		
+		session.invalidate();
 		
 		return nextPage;
 	}
