@@ -9,6 +9,7 @@
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="smtp.gmail.com" />
 		<property name="port" value="587" />
+		<!--password 환경변수로 변경할  필요있음. 주의할 것! 아래 Password는 현재 삭제한 상태-->
 		<property name="username" value="fkaus4598@gmail.com" />
 		<property name="password" value="vevy hmbc xwjo aamg" />
 		<property name="javaMailProperties">
