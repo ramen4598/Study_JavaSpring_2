@@ -6,13 +6,7 @@
 	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>
-			/WEB-INF/spring/root-context.xml
-			/WEB-INF/spring/jdbc-context.xml
-			/WEB-INF/spring/security-context.xml
-			/WEB-INF/spring/mail-context.xml
-			/WEB-INF/spring/file-context.xml
-		</param-value>
+		<param-value>/WEB-INF/spring/root-context.xml</param-value>
 	</context-param>
 	
 	<!-- Creates the Spring Container shared by all Servlets and Filters -->
@@ -35,7 +29,6 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-
 	<!-- 추가-->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
@@ -53,5 +46,4 @@
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-
 </web-app>
