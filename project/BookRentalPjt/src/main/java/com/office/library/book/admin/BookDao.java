@@ -31,7 +31,7 @@ public class BookDao {
 		String sql = "INSERT INTO tbl_book(b_thumbnail, " 
 					+ "b_name, " + "b_author, " + "b_publisher, "
 					+ "b_publish_year, " + "b_isbn, " + "b_call_number, "
-					+ "b_rantal_able, " + "b_reg_date, " + "b_mod_date) "
+					+ "b_rental_able, " + "b_reg_date, " + "b_mod_date) "
 					+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())";
 		int result = -1;
 		
@@ -40,7 +40,7 @@ public class BookDao {
 					bookVo.getB_thumbnail(), bookVo.getB_name(),
 					bookVo.getB_author(), bookVo.getB_publisher(),
 					bookVo.getB_publish_year(), bookVo.getB_isbn(),
-					bookVo.getB_call_number(), bookVo.getB_rantal_able());
+					bookVo.getB_call_number(), bookVo.getB_rental_able());
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -69,7 +69,7 @@ public class BookDao {
 				bookVo.setB_publish_year(rs.getString("b_publish_year"));
 				bookVo.setB_isbn(rs.getString("b_isbn"));
 				bookVo.setB_call_number(rs.getString("b_isbn"));
-				bookVo.setB_rantal_able(rs.getInt("b_rantal_able"));
+				bookVo.setB_rental_able(rs.getInt("b_rental_able"));
 				bookVo.setB_reg_date(rs.getString("b_reg_date"));
 				bookVo.setB_mod_date(rs.getString("b_mod_date"));
 				

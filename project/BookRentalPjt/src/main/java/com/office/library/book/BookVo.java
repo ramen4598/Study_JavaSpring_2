@@ -9,7 +9,7 @@ public class BookVo {
 	String b_publish_year;
 	String b_isbn;
 	String b_call_number;
-	int b_rantal_able;
+	int b_rental_able;
 	String b_reg_date;
 	String b_mod_date;
 	
@@ -61,11 +61,11 @@ public class BookVo {
 	public void setB_call_number(String b_call_number) {
 		this.b_call_number = b_call_number;
 	}
-	public int getB_rantal_able() {
-		return b_rantal_able;
+	public int getB_rental_able() {
+		return b_rental_able;
 	}
-	public void setB_rantal_able(int b_rantal_able) {
-		this.b_rantal_able = b_rantal_able;
+	public void setB_rental_able(int b_rantal_able) {
+		this.b_rental_able = b_rantal_able;
 	}
 	public String getB_reg_date() {
 		return b_reg_date;
