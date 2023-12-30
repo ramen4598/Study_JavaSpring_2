@@ -66,4 +66,14 @@ public class BookController {
 		return nextPage;
 	}
 	
+	@GetMapping("/bookDetail")
+	public String bookDetail(@RequestParam("b_no") int b_no, Model model) {
+		System.out.println("[BookController] bookDetail()");
+	
+		String nextPage = "admin/book/book_detail";
+		BookVo bookVo = bookService.bookDetail(b_no);
+		model.addAttribute("bookVo", bookVo);
+		return nextPage;
+	}
+	
 }
