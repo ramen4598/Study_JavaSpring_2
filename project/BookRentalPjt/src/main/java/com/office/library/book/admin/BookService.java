@@ -45,4 +45,22 @@ public class BookService {
 		
 	}
 
+	public BookVo modifyBookForm(int b_no) {
+		System.out.println("[BookService] modifyBookForm()");
+		
+		return bookDao.selectBook(b_no);
+	}
+
+	public int modifyBookConfirm(BookVo bookVo) {
+		System.out.println("[BookSerivce] modifyBookConfirm()");
+		
+		return bookDao.updateBook(bookVo);
+	}
+
+	public int deleteBookConfirm(int b_no) {
+		System.out.println("[BookService] deleteBookConfirm()");
+		
+		return bookDao.deleteBook(b_no);
+	}
+
 }
