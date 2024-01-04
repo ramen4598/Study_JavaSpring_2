@@ -29,4 +29,16 @@ public class UserMemberService {
 			return USER_ACCOUNT_ALREADY_EXIST;
 		}	
 	}
+
+	public UserMemberVo loginConfirm(UserMemberVo userMemberVo){
+		System.out.println("[UserMemberService] loginConfirm()");
+
+		UserMemberVo loginedUserMemberVo = userMemberDao.selectUser(userMemberVo);
+		if(loginedUserMemberVo != null)
+			System.out.println("[UserMemberService] USER MEMBER LOGIN SUCCESS!!");
+		else
+			System.out.println("[UserMemberService] USER MEMBER LOGIN FAIL!!");
+
+		return loginedUserMemberVo;
+	}
 }
