@@ -62,4 +62,37 @@ public class UserMemberController {
 
 		return nextPage;
 	}
+
+	@GetMapping("/modifyAccountForm")
+	public String modifyAccountForm(HttpSession session){
+		System.out.println("[UserMemberController] modifyAccountForm()");
+
+		String nextPage = "user/member/modify_account_form";
+
+		UserMemberVo loginedUserMemberVo = (UserMemberVo) session.getAttribute("loginedUserMemberVo");
+
+		if(loginedUserMemberVo == null)
+			nextPage = "redirect:/user/member/loginForm";
+
+		return nextPage;
+	}
+
+	@PostMapping("/modifyAccountConfirm")
+	public String modifyAccountConfirm(UserMemberVo userMemberVo, HttpSession session){
+		System.out.println("[UserMemberController] modifyAccountConfirm()");
+
+		String nextPage = "user/member/modify_account_ok";
+
+		int result = userMemberService.modifyAccountConfirm(userMemberVo);
+
+		if(result > 0) {
+			UserMemberVo loginedUserMemberVo = userMemberService.getLoginedUserMemberVo(userMemberVo.getU_m_no());
+			session.setAttribute("loginedUserMemberVo", loginedUserMemberVo);
+			session.setMaxInactiveInterval(60 * 30);
+		} else {
+			nextPage = "user/member/modify_account_ng";
+		}
+		return nextPage;
+	}
+
 }
