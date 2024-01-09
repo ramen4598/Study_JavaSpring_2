@@ -94,5 +94,14 @@ public class UserMemberController {
 		}
 		return nextPage;
 	}
+	
+	@GetMapping("/logoutConfirm")
+	public String logoutConfirm(HttpSession session) {
+		System.out.println("[UserMemberController] logoutConfirm()");
+		
+		String nextPage = "redirect:/";
+		session.invalidate();
+		return nextPage;
+	}
 
 }
