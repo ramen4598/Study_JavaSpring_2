@@ -18,4 +18,9 @@ public class BookService {
 
         return bookDao.selectBooksBySearch(bookVo);
     }
+
+    public BookVo bookDetail(int b_no) {
+        System.out.println("[BookService] bookDetail()");
+        return bookDao.selectBook(b_no);
+    }
 }
